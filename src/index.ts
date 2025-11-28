@@ -39,6 +39,16 @@ interface MapKeysOptions {
  * @param keyMap - Key mapping, e.g. { items: 'children' }
  * @param options - Transformation options
  * @returns Transformed data with updated keys
+ *
+ * @example
+ * ```typescript
+ * // Why T = unknown but not T
+ * const data = JSON.parse(localStorage.getItem('config')!); // Type is unknown
+ * const result = mapKeys(data, { items: 'children' });
+ * // ❌ TypeScript error: "Unable to infer type parameter T"
+ *
+ * // With T = unknown as default, this works perfectly
+ * ```
  */
 function mapKeys<T = unknown>(data: T, keyMap: KeyMap, options?: MapKeysOptions): T {
   const { mode = 'replace', deep = true, ignoreKeys = [], skipNullish = false } = options ?? {};
