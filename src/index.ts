@@ -1,4 +1,7 @@
 // AI: https://chat.qwen.ai/c/c27a99a0-727e-48de-81a2-9c2a18f9bc6a
+// skipNullish 不是必需的，但它在响应式系统集成、性能微调或未来扩展时提供了一个安全出口。它体现了“显式优于隐式”的设计哲学，但日常使用中很少需要开启。
+
+
 type KeyMap = Record<string, string>;
 
 interface MapKeysOptions {
@@ -73,7 +76,7 @@ function mapKeys<T = unknown>(
   const result: Record<string, unknown> = {};
 
   for (const key in data) {
-    if (!Object.hasOwn(data, key)) continue;
+    if (!Object.prototype.hasOwnProperty.call(data, key)) continue;
 
     const originalValue = (data as Record<string, unknown>)[key];
 
@@ -85,7 +88,7 @@ function mapKeys<T = unknown>(
       continue;
     }
 
-    const shouldMap = Object.hasOwn(keyMap, key);
+    const shouldMap = Object.prototype.hasOwnProperty.call(keyMap, key);
     const newKey = shouldMap ? keyMap[key] : key;
 
     const processedValue = deep

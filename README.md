@@ -15,9 +15,24 @@ yarn add @jswork/map-keys
 ```js
 import mapKeys from '@jswork/map-keys';
 
-mapKeys(1024);
+// Basic key renaming
+const data = { oldKey: 'value', keepKey: 'another' };
+const result = mapKeys(data, { oldKey: 'newKey' });
+// { newKey: 'value', keepKey: 'another' }
 
-// [1000, 0, 20, 4]
+// Copy mode: keep both original and new keys
+const result2 = mapKeys(data, { oldKey: 'newKey' }, { mode: 'copy' });
+// { oldKey: 'value', keepKey: 'another', newKey: 'value' }
+
+// Deep nested transformation
+const nested = {
+  users: [{ firstName: 'John', lastName: 'Doe' }]
+};
+const result3 = mapKeys(nested, {
+  firstName: 'first_name',
+  lastName: 'last_name'
+});
+// { users: [{ first_name: 'John', last_name: 'Doe' }] }
 ```
 
 ## license
