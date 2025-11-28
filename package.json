@@ -1,7 +1,6 @@
 {
   "name": "@jswork/map-keys",
   "version": "1.0.0",
-  "private": true,
   "description": "Recursively rename or copy object keys with full control.",
   "npmClient": "pnpm",
   "main": "dist/index.cjs.js",
