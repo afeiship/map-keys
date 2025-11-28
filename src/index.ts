@@ -104,7 +104,7 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
 /**
  * Check if an object has a specific property (more compatible than Object.hasOwn)
  */
-function hasProperty(obj: unknown, prop: string): boolean {
+function hasProperty(obj: object, prop: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
