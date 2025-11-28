@@ -1,5 +1,7 @@
 // AI: https://chat.qwen.ai/c/c27a99a0-727e-48de-81a2-9c2a18f9bc6a
-// skipNullish 不是必需的，但它在响应式系统集成、性能微调或未来扩展时提供了一个安全出口。它体现了“显式优于隐式”的设计哲学，但日常使用中很少需要开启。
+// skipNullish is not essential, but it provides a safe exit for reactive system integration,
+// performance tuning, or future extensions. It embodies the "explicit is better than implicit"
+// design philosophy, though it's rarely needed in daily use.
 
 type KeyMap = Record<string, string>;
 
