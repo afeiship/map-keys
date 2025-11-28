@@ -1,56 +1,36 @@
-# rails-module-devise
-> Rails module for devise.
+# map-keys
+> Recursively rename or copy object keys with full control.
 
-## steps
-+ some code:
-```bash
-# add this to Gemfile: `gem 'devise'`
-rails generate devise:install
-rails generate devise User
-rails generate controller Home index
-rake db:migrate
+[![version][version-image]][version-url]
+[![license][license-image]][license-url]
+[![size][size-image]][size-url]
+[![download][download-image]][download-url]
+
+## installation
+```shell
+yarn add @jswork/map-keys
 ```
 
-+ config:
-# config/environments/development.rb:
-```ruby
-config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+## usage
+```js
+import mapKeys from '@jswork/map-keys';
+
+mapKeys(1024);
+
+// [1000, 0, 20, 4]
 ```
 
-+ routes:
-```ruby
-Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
-end
-```
+## license
+Code released under [the MIT license](https://github.com/afeiship/map-keys/blob/master/LICENSE.txt).
 
-+ mail settings:
-```ruby
-# environments/development.rb
-config.action_mailer.delivery_method =:smtp
-config.action_mailer.smtp_settings = {
-    :address=> "smtp.163.com",
-    :port=> 25,
-    :domain=> "163.com",
-    :authentication=> :login,
-    :user_name=> "admin@163.com",#你的邮箱
-    :password=> 'admin'      #你的密码
-}
+[version-image]: https://img.shields.io/npm/v/@jswork/map-keys
+[version-url]: https://npmjs.org/package/@jswork/map-keys
 
-# project/config/initializers/devise.rb
-config.mailer_sender = 'admin@163.com'
-```
+[license-image]: https://img.shields.io/npm/l/@jswork/map-keys
+[license-url]: https://github.com/afeiship/map-keys/blob/master/LICENSE.txt
 
-## resources
-- https://github.com/plataformatec/devise
-- https://github.com/imhta/rails_6_devise_example
-- https://github.com/pludoni/simple-captcha
-- https://segmentfault.com/a/1190000014610228
-- http://www.imagemagick.org/script/download.php#macosx
-- https://stackoverflow.com/questions/7195866/how-to-integrate-a-simple-captcha-with-devise-at-registration-in-rails-3
-- https://www.bogotobogo.com/RubyOnRails/RubyOnRails_Devise_Authentication_Sending_Confirmation_Email.php
-- https://www.sitepoint.com/devise-authentication-in-depth/
-- https://www.jianshu.com/p/d59e4c6e53de
-- https://ihower.tw/rails/auth.html
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/map-keys
+[size-url]: https://github.com/afeiship/map-keys/blob/master/dist/map-keys.min.js
+
+[download-image]: https://img.shields.io/npm/dm/@jswork/map-keys
+[download-url]: https://www.npmjs.com/package/@jswork/map-keys
