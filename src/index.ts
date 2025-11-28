@@ -96,6 +96,12 @@ function mapKeys<T = unknown>(data: T, keyMap: KeyMap, options?: MapKeysOptions)
 
 /**
  * Helper to check if a value is a plain object (not Array, Date, RegExp, etc.)
+ *
+ * Type considerations:
+ * - unknown: "I accept anything, but I'll check it myself"
+ * - any: "I accept anything, I won't check" (dangerous!)
+ * - object: "I only accept objects", but excludes null, undefined, and primitives
+ *   which can occur at runtime
  */
 function isPlainObject(value: unknown): value is Record<string, unknown> {
   if (typeof value !== 'object' || value === null) return false;
